@@ -37,7 +37,7 @@ public class ArticleDAO implements IArticleDAO {
     public void updateArticleById(Article article) {
         Article artc1 = getArticleById(article.getArticleId());
         artc1.setTitle(article.getTitle());
-        artc1.setCatecory(article.getCatecory());
+        artc1.setCategory(article.getCategory());
     }
 
     @Override
@@ -47,13 +47,9 @@ public class ArticleDAO implements IArticleDAO {
 
     @Override
     public boolean isExists(String title, String category) {
-
-        String hg1 = "FROM Article as atc1 WHERE atc1.title = ? and atc1.category = ?";
-        int count = entityManager.createQuery(hg1).setParameter(1, "title")
-                .setParameter(2, category).getResultList().size();
-
-        //0 to false
-        // 0< true wieksze niz 0
+        String hql = "FROM Article as atcl WHERE atcl.title =:title and atcl.category =:category";
+        int count = entityManager.createQuery(hql).setParameter("title", title)
+                .setParameter("category", category).getResultList().size();
         return count > 0 ? true : false;
     }
 }

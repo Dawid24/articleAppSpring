@@ -3,9 +3,11 @@ package com.paciorek.dawid.articleApp.service;
 import com.paciorek.dawid.articleApp.dao.IArticleDAO;
 import com.paciorek.dawid.articleApp.model.Article;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ArticleService implements IArticleService {
 
     @Autowired
@@ -23,7 +25,7 @@ public class ArticleService implements IArticleService {
 
     @Override
     public boolean addArticle(Article article) {
-        if (iArticleDAO.isExists(article.getTitle(), article.getCatecory())) {
+        if (iArticleDAO.isExists(article.getTitle(), article.getCategory())) {
             return false;
         } else {
             iArticleDAO.addArticle(article);

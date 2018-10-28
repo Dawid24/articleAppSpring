@@ -13,7 +13,7 @@ public class Article {
 
     private String title;
 
-    private String catecory;
+    private String category;
 
     public int getArticleId() {
         return articleId;
@@ -27,11 +27,11 @@ public class Article {
         this.title = title;
     }
 
-    public String getCatecory() {
-        return catecory;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCatecory(String catecory) {
-        this.catecory = catecory;
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
